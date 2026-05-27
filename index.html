@@ -3,19 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股每日资讯简报 - 2026-05-27</title>
+<title>A股每日资讯简报 - 2026年5月27日</title>
 <style>
   :root {
     --bg-primary: #1a1a2e;
     --bg-secondary: #16213e;
     --bg-card: #1e2a45;
+    --bg-card-hover: #243352;
     --text-primary: #e8e8e8;
     --text-secondary: #a0a0b0;
+    --text-muted: #6c6c80;
     --accent-gold: #ffd700;
     --accent-green: #00d26a;
     --accent-red: #ff4757;
+    --accent-yellow: #ffa502;
+    --accent-blue: #3742fa;
     --border-color: #2a2a4a;
     --radius: 8px;
+    --radius-lg: 12px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -33,16 +38,18 @@
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 24px;
   }
-  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .header .date { color: var(--text-secondary); font-size: 14px; }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .date-info { color: var(--text-secondary); font-size: 14px; }
   .summary-banner {
     background: linear-gradient(135deg, #2d1b69 0%, #1e3a5f 100%);
     border: 1px solid #4a3a8a;
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 20px;
     margin-bottom: 24px;
+    position: relative;
   }
-  .summary-banner .label { font-size: 13px; color: var(--accent-gold); font-weight: 600; margin-bottom: 8px; }
+  .summary-banner .label { font-size: 13px; color: var(--accent-gold); font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; }
+  .summary-banner .text { font-size: 16px; line-height: 1.8; font-weight: 500; }
   .section { margin-bottom: 28px; }
   .section-title {
     font-size: 18px;
@@ -50,102 +57,429 @@
     margin-bottom: 16px;
     padding-bottom: 8px;
     border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .card {
+  .topic-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .topic-card:hover { border-color: #4a4a7a; }
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topic-name { font-size: 17px; font-weight: 700; }
+  .topic-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .tag-strong { background: rgba(255,71,87,0.2); color: var(--accent-red); }
+  .tag-brewing { background: rgba(255,165,2,0.2); color: var(--accent-yellow); }
+  .tag-pullback { background: rgba(0,210,106,0.2); color: var(--accent-green); }
+  .tag-durability { background: rgba(255,215,0,0.15); color: var(--accent-gold); }
+  .topic-layer { margin-bottom: 12px; }
+  .topic-layer .layer-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .layer-label.logic { color: var(--accent-blue); }
+  .layer-label.capital { color: var(--accent-gold); }
+  .layer-label.target { color: var(--accent-green); }
+  .layer-label.risk { color: var(--accent-red); }
+  .topic-layer .layer-content { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+  .opinion-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     padding: 16px;
     margin-bottom: 12px;
   }
-  .card h3 { font-size: 16px; margin-bottom: 12px; color: var(--accent-green); }
-  .card p { margin-bottom: 10px; }
-  .card ul { margin-left: 20px; margin-bottom: 10px; }
-  .card li { margin-bottom: 6px; }
+  .opinion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .opinion-author { font-weight: 700; color: var(--accent-gold); }
+  .opinion-platform { font-size: 12px; color: var(--text-muted); }
+  .opinion-content { font-size: 14px; line-height: 1.75; color: var(--text-secondary); }
+  .research-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .research-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .research-title { font-weight: 700; color: var(--accent-green); }
+  .research-meta { font-size: 12px; color: var(--text-muted); display: flex; gap: 12px; }
+  .research-summary { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  .research-targets {
+    background: rgba(55,66,250,0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .research-risk {
+    background: rgba(255,71,87,0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .operation-card {
+    background: linear-gradient(135deg, rgba(0,210,106,0.1) 0%, rgba(55,66,250,0.1) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .operation-row { display: flex; margin-bottom: 12px; gap: 12px; }
+  .operation-label {
+    width: 80px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+  }
+  .operation-content { flex: 1; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+  .rumor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .rumor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .rumor-title { font-weight: 700; }
+  .rumor-stars { color: var(--accent-gold); }
+  .rumor-content { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+  .rumor-status {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255,165,2,0.2);
+    color: var(--accent-yellow);
+  }
+  .market-data-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .data-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px;
+    text-align: center;
+  }
+  .data-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+  .data-value { font-size: 18px; font-weight: 700; }
+  .data-value.up { color: var(--accent-green); }
+  .data-value.down { color: var(--accent-red); }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+  }
   a { color: var(--accent-gold); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .source { font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
+  .source-link { font-size: 11px; color: var(--text-muted); margin-top: 8px; display: block; }
+  @media (max-width: 600px) {
+    .market-data-grid { grid-template-columns: repeat(2, 1fr); }
+    .topic-header { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>📊 A股每日资讯简报</h1>
-    <div class="date">2026年5月27日 · 星期三</div>
+    <div class="date-info">2026年5月27日 · 星期三 · 数据截至收盘</div>
   </div>
-  
+
   <div class="summary-banner">
-    <div class="label">本期主线</div>
-    <div class="text">今日A股市场呈现极端分化行情，上证指数失守4100点整数关口，但科技赛道依然是市场焦点。先进封装技术接连取得突破，龙芯中科推出23亿元定增强化国产芯片研发，华为"韬定律"继续引领半导体产业新方向。</div>
+    <div class="label">📌 本期主线</div>
+    <div class="text">今日A股上演极端分化行情，上证指数大跌1.25%失守4100点，全市场超4400股下跌，但先进封装板块逆势走强，4日累计飙涨15%成为唯一主线。华为"韬定律"持续催化，华天科技3连板逼近历史新高，龙芯中科抛出23亿元定增加码芯片研发。市场进入高位震荡期，资金从高位AI算力向低位先进封装/PCB切换，白酒、煤炭等防御板块走强。操作上建议控制仓位5-6成，避高就低。</div>
   </div>
 
-  <div class="section">
-    <div class="section-title">📈 大盘行情</div>
-    <div class="card">
-      <h3>A股上演极端分化行情</h3>
-      <p>2026年5月27日，A股上演"冰火两重天"的极端分化行情。截至收盘，上证指数报4093.72点，大跌1.25%，失守4100点整数关口；深证成指报15736.47点，下跌0.88%；创业板指上涨0.07%。全市场超4400股下跌，板块分化明显：白酒、煤炭板块走强，算力、存储板块走弱。</p>
-      <div class="source">
-        来源：<a href="https://36kr.com/newsflashes/3827193129194376" target="_blank">36氪</a> · 
-        <a href="https://caifuhao.eastmoney.com/news/20260527171822348852920" target="_blank">东方财富</a> · 
-        <a href="https://stcn.com/article/detail/3929984.html" target="_blank">证券时报</a>
-      </div>
+  <div class="market-data-grid">
+    <div class="data-card">
+      <div class="data-label">上证指数</div>
+      <div class="data-value down">-1.25%</div>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">💻 科技赛道动态</div>
-    
-    <div class="card">
-      <h3>先进封装技术接连突破</h3>
-      <p>先进封装板块今日表现活跃。2026年全球先进封装市场规模预计达587亿美元，同比增长97%，几乎翻倍。</p>
-      <p><strong>环旭电子</strong>宣布其在新世代功率解决方案领域开发的先进功率半导体封装技术取得重大突破。该技术成功将碳化硅（SiC）晶粒预埋于多层ABF基板之中，同时创新采用单面铜裸露（SSC）模块封装技术。</p>
-      <p><strong>日月光半导体</strong>宣布已开发出业界首条自动化310mm×310mm面板级封装生产线，进一步巩固其在下一代先进封装技术领域的领先地位。这条新产线可实现从晶圆级封装到面板级封装的无缝过渡，预计2027年上半年投入量产。</p>
-      <div class="source">
-        来源：<a href="https://m.sohu.com/a/1028279593_122024453/" target="_blank">搜狐</a> · 
-        <a href="http://cnmobile.prnasia.com/story/534559-1.shtml" target="_blank">美通社</a> · 
-        <a href="https://finance.sina.cn/2026-05-27/detail-inhziqxq0838729.d.html" target="_blank">新浪财经</a>
-      </div>
+    <div class="data-card">
+      <div class="data-label">深证成指</div>
+      <div class="data-value down">-0.88%</div>
     </div>
-
-    <div class="card">
-      <h3>龙芯中科23亿元定增押注芯片研发</h3>
-      <p>龙芯中科5月27日对外披露定增预案，计划向不超过35名特定对象发行A股股票，募资上限锁定23亿元。这笔募资在扣除发行费用后将被拆分使用：</p>
-      <ul>
-        <li>9.71亿元投入基于Xnm工艺的信息化芯片研发及产业化项目</li>
-        <li>4.85亿元用于攻克同工艺下的CPU关键核心技术</li>
-        <li>3.6亿元布局通用GPU关键核心技术研发领域</li>
-      </ul>
-      <div class="source">
-        来源：<a href="https://www.cfi.cn/p20260527002954.html" target="_blank">中财网</a> · 
-        <a href="https://caifuhao.eastmoney.com/news/20260527195437812105020" target="_blank">东方财富</a>
-      </div>
+    <div class="data-card">
+      <div class="data-label">创业板指</div>
+      <div class="data-value up">+0.07%</div>
     </div>
-
-    <div class="card">
-      <h3>华为"韬定律"引领半导体新方向</h3>
-      <p>华为发布的"韬定律"持续引领半导体产业发展新方向。该定律的核心定义是以"时间缩微"替代"几何缩微"，通过逻辑折叠、3D堆叠、先进封装技术在晶体管、电路、芯片、系统四个层面持续压缩信号传输延迟，提升系统整体效能。发布当日科创50指数大涨5.88%创历史新高。</p>
-      <p>中信证券研报指出，AI算力基建相关板块盈利同比增长超50%，光模块、存储及半导体设备头部公司基于2026-2027年一致预测市盈率普遍在20倍以下，高增速有望通过动态估值快速消化当前溢价，属估值合理、业绩兑现确定的核心资产。</p>
-      <div class="source">
-        来源：<a href="https://36kr.com/p/3825454579045256" target="_blank">36氪</a> · 
-        <a href="https://finance.sina.com.cn/roll/2026-05-26/doc-inhzfshn1381983.shtml" target="_blank">新浪财经</a>
-      </div>
+    <div class="data-card">
+      <div class="data-label">成交额</div>
+      <div class="data-value">3.26万亿</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">🎯 重点个股异动</div>
-    <div class="card">
-      <h3>寒武纪、源杰科技股价分化</h3>
-      <p>5月27日科创板个股表现分化。<strong>寒武纪</strong>当日下跌5.03%，全天主力资金净流出25.13亿元，为科创板主力资金净流出最多个股；<strong>源杰科技</strong>同日上涨7.96%，收盘报1124.0元。</p>
-      <div class="source">
-        来源：<a href="https://stcn.com/article/detail/3929939.html" target="_blank">证券时报</a>
+    <div class="section-title">🔥 热门题材深度分析</div>
+
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">先进封装/PCB（韬定律主线）</div>
+        <div class="topic-tags">
+          <span class="tag tag-strong">主线最强</span><span class="tag tag-durability">4日涨15%</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label logic">🔍 核心逻辑：</span>
+        <span class="layer-content">华为"韬定律"引燃先进封装赛道，技术路径从"概念"向"产能落地"加速转换。先进封装正从传统"后道工艺"向"前道化"演进，工艺复杂度与价值量持续提升。据Yole数据，2025年全球先进封装市场规模预计达569亿美元，首次超过传统封装，2028年将增长至786亿美元。国内方面，2025年先进封装市场规模预计达609.9亿元，近5年CAGR达16.85%。减薄、划片、键合、电镀、沉积、刻蚀及临时键合/解键合构成七大核心设备，设备是产能扩张过程中弹性最大的细分板块。今日大盘普跌背景下，先进封装概念以近2.6%涨幅逆势走强，全天成交额超551亿元，换手率高达6.39%，量比3.99远超均量，成为硬科技赛道最吸金的独立行情。</span>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label capital">💰 资金流向：</span>
+        <span class="layer-content">两市主力资金净流出超713亿元的背景下，大量资金逆势涌入先进封装及存储链。融资数据显示，本月先进封装概念有17股被融资净买入过亿，寒武纪融资净买入61.17亿元位居榜首，长电科技紧随其后获41.41亿元融资净买入，佰维存储、通富微电、盛合晶微、华天科技也均获超10亿元融资净买入。本月股价表现方面，盛合晶微股价翻倍，长电科技、天承科技涨超90%，联讯仪器涨超70%，甬矽电子、华海诚科涨超50%。</span>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label target">🎯 受益标的：</span>
+        <span class="layer-content">【龙头中军】华天科技(002185，3连板逼近历史新高，30亿扩产南京基地)、长电科技(600584，全球第三封测龙头，融资净买入41亿)、通富微电(002156，5nm Chiplet及HBM3已规模化量产)；【PCB基板】中京电子(002579，两连板，HBM配套基板直接受益)、生益科技(600183，覆铜板龙头，进入英伟达供应链)；【弹性标的】创达新材(bj920012，北交所半导体材料，单日暴涨25%)、鸿仕达(bj920125，先进封装设备，涨超19%)；【存储+封装】佰维存储(688525，1亿设产业基金，双利好共振)。</span>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label risk">⚠️ 风险提示：</span>
+        <span class="layer-content">板块4日累计涨幅已达15%，短期获利盘丰厚存在回吐压力；先进封装技术迭代不及预期；国产替代进度慢于计划。</span>
+      </div>
+      <a href="https://finance.eastmoney.com/news/11139,202605273751017873.html" target="_blank" class="source-link">🔗 来源：东方财富研究中心</a>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">龙芯中科23亿定增（芯片自主可控）</div>
+        <div class="topic-tags">
+          <span class="tag tag-brewing">重磅公告</span><span class="tag tag-durability">长期战略</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label logic">🔍 核心逻辑：</span>
+        <span class="layer-content">龙芯中科5月27日对外披露定增预案，计划向不超过35名特定对象发行A股股票，募资上限锁定23亿元。这笔募资在扣除发行费用后将被拆分使用：9.71亿元投入基于Xnm工艺的信息化芯片研发及产业化项目；4.85亿元用于攻克同工艺下的CPU关键核心技术；3.6亿元布局通用GPU关键核心技术研发领域。这是国产CPU龙头在AI时代的战略加码，表明公司正从单一CPU厂商向"CPU+GPU"综合算力平台演进，契合国家信创与AI国产化战略方向。</span>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label target">🎯 受益标的：</span>
+        <span class="layer-content">龙芯中科(688047，定增主体)、寒武纪(688256，AI芯片对标)、海光信息(688041，国产CPU/GPU)、景嘉微(300474，国产GPU)。</span>
+      </div>
+      <a href="https://caifuhao.eastmoney.com/news/20260527195437812105020" target="_blank" class="source-link">🔗 来源：东方财富网</a>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">超级电容（AI服务器供电标配）</div>
+        <div class="topic-tags">
+          <span class="tag tag-strong">新增赛道</span><span class="tag tag-brewing">从选配到标配</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label logic">🔍 核心逻辑：</span>
+        <span class="layer-content">国金证券等机构假设2026年英伟达GB300 NVL72机架出货量为5-6万台，每台机柜集成Energy Storage Tray需5个BBU模块和超过300个超级电容器，据此推算全年总需求为1500万-1800万颗。GB300 NVL72单柜功率达130-140kW，GPU瞬态功耗毫秒级波动要求微秒级响应电源缓冲，超级电容从"选配"升级为"标配"，用于稳压与瞬态调峰。今日超级电容概念持续走强，艾华集团、凯恩股份、江海股份、海星股份等多股涨停。</span>
+      </div>
+      <div class="topic-layer">
+        <span class="layer-label target">🎯 受益标的：</span>
+        <span class="layer-content">艾华集团、凯恩股份、江海股份、海星股份、元力股份、法拉电子、火炬电子、新疆众和。</span>
+      </div>
+      <a href="https://caifuhao.eastmoney.com/news/20260527175908547051230" target="_blank" class="source-link">🔗 来源：经传多赢股票</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">💡 大V观点精选</div>
+
+    <div class="opinion-card">
+      <div class="opinion-header">
+        <div class="opinion-author">长风论股</div>
+        <div class="opinion-platform">今日头条</div>
+      </div>
+      <div class="opinion-content">
+        "昨天（5月26日）的长下影，不是下跌信号，是主力洗盘结束、摊牌不演的信号！该割的散户已经割了，该卖的获利盘已经卖了，市场抛压耗尽。5月27日是关键变盘窗口，历史规律显示5月底往往是市场变盘关键节点。当前市场呈现指数抗跌、个股普跌的极致分化特征，这不是行情结束，而是资金调仓换股的信号。成交量连续3万亿+，说明资金还在场内，只是在进行板块切换。"
+      </div>
+      <a href="http://m.toutiao.com/group/7644370368110526985/" target="_blank" class="source-link">🔗 原文</a>
+    </div>
+
+    <div class="opinion-card">
+      <div class="opinion-header">
+        <div class="opinion-author">炎坤策略</div>
+        <div class="opinion-platform">今日头条</div>
+      </div>
+      <div class="opinion-content">
+        "5月27日收盘4093.72点，支撑位4077(前低)、4060(60日线)，缩量回踩是低吸点。压力位4100(整数关)、4138(反弹强压)，无量反抽逢高减仓。总仓位建议5-6成，不重仓、不空仓，震荡市区间套利。板块方向建议高低切换、避高就低：低吸电力/水电、有色(钼/铜)、白酒/消费、券商；高位AI/算力/半导体只做超跌反弹，不追高。"
+      </div>
+      <a href="http://m.toutiao.com/group/7644521838902608418/" target="_blank" class="source-link">🔗 原文</a>
+    </div>
+
+    <div class="opinion-card">
+      <div class="opinion-header">
+        <div class="opinion-author">经传多赢</div>
+        <div class="opinion-platform">东方财富</div>
+      </div>
+      <div class="opinion-content">
+        "上证指数临近中午出现变盘S点，此时需要再次减仓。当日线级别出现S点或持续维持S点时，整体仓位应尽可能控制在五成以下。对大多数人而言，真正拉开差距的往往不是进攻能力，而是防守能力。碰到弱势行情，应降低仓位，适当分仓感受市场，非必要不出手，耐心等待市场由弱转强。股票投资是马拉松，短期暴利者多如牛毛，但一年一倍者却寥寥无几。"
+      </div>
+      <a href="https://caifuhao.eastmoney.com/news/20260527175908547051230" target="_blank" class="source-link">🔗 原文</a>
+    </div>
+
+    <div class="opinion-card">
+      <div class="opinion-header">
+        <div class="opinion-author">极致说股</div>
+        <div class="opinion-platform">市值风云</div>
+      </div>
+      <div class="opinion-content">
+        "当前市场呈现明显的结构性分化特征，资金持续向低位板块切换。有色金属（铝、铜）、贵金属、券商金融等低估值周期与权重板块充当护盘主力；科技细分中，先进封装/PCB因订单确定性高而具备较强抗跌性。前期爆炒的高位AI算力硬件、光模块等题材小票正面临集中获利兑现，短期仍有惯性休整需求，切勿盲目追涨抄底。"
+      </div>
+      <a href="https://m.wogoo.com/sq/t/cf7f9f4135554c2c82878c396dd8cf96" target="_blank" class="source-link">🔗 原文</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📑 研报精选</div>
+
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">AI算力专题报告：AI产业高景气持续，算力国产化大势所趋</div>
+        <div class="research-meta">
+          <span>山西证券</span><span>2026-05-27</span>
+        </div>
+      </div>
+      <div class="research-summary">
+        互联网和智算中心两大下游AI算力需求持续，国产化采购快速推进。1）互联网：24年以来互联网大厂仍持续投入基础大模型训练，并在今年开始布局推理大模型，推动算力资本开支保持快速增长，随着DeepSeek的突破大幅降低应用端门槛以及Agent技术和产品日趋成熟，推理侧需求有望逐渐成为AI算力支出的主驱动力。同时，互联网大厂正在加速推进国产AI芯片采购；2）智算中心：中央和地方政策明确国产AI算力建设目标，奠定AI算力建设的政策基调。
+      </div>
+      <div class="research-targets">
+        <strong>投资建议：</strong>在芯片端，看好新一代产品性能有望大幅提升的第一梯队厂商，推荐海光信息，关注寒武纪、景嘉微等；在服务器端，看好H20放量对传统服务器领军的业绩拉动，推荐浪潮信息，关注华勤技术等，同时看好昇腾芯片份额提升带来的投资机会，关注四川长虹、神州数码、拓维信息等。
+      </div>
+      <div class="research-risk">
+        <strong>风险提示：</strong>互联网对国产AI芯片的采购不及预期，智算中心项目AI算力国产化率提升放缓，国产AI芯片技术研发不及预期，行业竞争格局加剧风险。
+      </div>
+      <a href="https://stock.stockstar.com/JC2025052700029068.shtml" target="_blank" class="source-link">🔗 研报原文</a>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">半导体行业事件点评：字节豆包上线视频通话功能</div>
+        <div class="research-meta">
+          <span>东莞证券</span><span>2026-05-27</span>
+        </div>
+      </div>
+      <div class="research-summary">
+        豆包视频通话模型上线，有望加速AI眼镜等智能终端的推广和渗透。视频AI模型属于多模态模型，包含的信息量远大于文字和语音，计算复杂度显著提高。以OpenAI推出的视频生成大模型Sora为例，其训练和推理所需要的算力需求分别达到了GPT-4的4.5倍和近400倍。随着视频通话模型、视频创作模型的逐步推广，传统内容创作流程有望被颠覆，并同步带动算力基础设施需求快速增长。
+      </div>
+      <div class="research-targets">
+        <strong>投资建议：</strong>字节豆包视频通话模型上线，是多模态感知技术商业化落地进程中的标志性事件，有望拉动上游算力芯片和AI终端SOC芯片需求增长，建议关注海光信息(688041)、寒武纪(688256)、恒玄科技(688608)、乐鑫科技(688018)、瑞芯微(603893)等标的。
+      </div>
+      <div class="research-risk">
+        <strong>风险提示：</strong>AI终端渗透不及预期的风险、行业资本开支不及预期的风险等。
       </div>
     </div>
   </div>
 
-  <div class="footer" style="text-align: center; padding: 24px; color: var(--text-secondary); font-size: 13px; border-top: 1px solid var(--border-color); margin-top: 40px;">
-    ⚠️ 本简报仅供理论学习参考，不构成任何投资建议。股市有风险，投资需谨慎。
+  <div class="section">
+    <div class="section-title">🎯 明日操作参考</div>
+
+    <div class="operation-card">
+      <div class="operation-row">
+        <div class="operation-label">📈 看多方向</div>
+        <div class="operation-content">1. 先进封装/PCB：主线最强，高抛低吸不追高；2. 电力/水电：夏季用电高峰，高股息+低估值防御；3. 有色(钼/铜)：供给收缩+涨价预期；4. 白酒/消费：估值低位+端午旺季催化。</div>
+      </div>
+      <div class="operation-row">
+        <div class="operation-label">📉 谨慎方向</div>
+        <div class="operation-content">1. 高位AI/算力/半导体：获利回吐压力大，只做超跌反弹；2. 高估值小票：流动性差，补跌风险；3. 无业绩纯题材：纯炒作、无基本面支撑。</div>
+      </div>
+      <div class="operation-row">
+        <div class="operation-label">💰 仓位建议</div>
+        <div class="operation-content">总仓位5-6成，不重仓、不空仓。短线仓2-3成：4070-4080低吸，4130-4138减仓，快进快出；中线仓3成：高股息(电力/公用事业)、低估值周期(有色/白酒)、金融(券商/保险)；现金4-5成：留足备用，跌破4060再减仓，企稳再加仓。</div>
+      </div>
+      <div class="operation-row">
+        <div class="operation-label">⏰ 做T参考</div>
+        <div class="operation-content">开盘(9:30-10:00)：惯性下探，看4077支撑，缩量不创新低可低吸；上午(10:00-11:30)：反抽4100，无量不过减仓，放量站稳持有；下午(13:30-15:00)：窄幅震荡，4080-4100区间高抛低吸，收盘缩量企稳可持仓。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📢 市场传闻验证</div>
+
+    <div class="rumor-card">
+      <div class="rumor-header">
+        <div class="rumor-title">长鑫科技5月27日科创板上会</div>
+        <div class="rumor-stars">⭐⭐⭐⭐⭐ 高可信</div>
+      </div>
+      <div class="rumor-content">市场传闻长鑫科技将于5月27日科创板上会，募资60%采购设备材料。今日存储芯片板块异动，兆易创新、佰维存储早盘涨超6%。经核查，上交所官网显示长鑫科技首发事项确在今日审议，消息属实。</div>
+      <div class="rumor-status">✅ 已验证：属实</div>
+    </div>
+
+    <div class="rumor-card">
+      <div class="rumor-header">
+        <div class="rumor-title">先进封装某龙头下月量产3D堆叠技术</div>
+        <div class="rumor-stars">⭐⭐⭐ 中等可信</div>
+      </div>
+      <div class="rumor-content">市场传闻国内某先进封装龙头下月将量产超细间距混合键合工艺，支持逻辑+存储芯片3D堆叠。今日华天科技、长电科技逆势走强。经核查，中信证券研报曾提及相关技术路径，但具体公司量产时间尚未得到官方确认。</div>
+      <div class="rumor-status">🔍 待验证：部分属实</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    ⚠️ 本简报仅供理论学习参考，不构成任何投资建议。股市有风险，投资需谨慎。所有信息均来自公开渠道，据此操作盈亏自负。<br><br>
+    📅 生成时间：2026年5月27日 23:00 | 扣子猴出品
   </div>
 </div>
+
+<script>
+// 页面加载完成后的交互
+document.addEventListener('DOMContentLoaded', function() {
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // 卡片悬停效果
+  const cards = document.querySelectorAll('.topic-card, .opinion-card, .research-card, .rumor-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+      this.style.transition = 'transform 0.2s ease';
+    });
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+});
+</script>
 </body>
 </html>

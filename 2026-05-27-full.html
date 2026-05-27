@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股每日资讯简报 - 2026年5月27日</title>
+<style>
+  :root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-card: #1e2a45;
+    --bg-card-hover: #243352;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6c6c80;
+    --accent-gold: #ffd700;
+    --accent-green: #00d26a;
+    --accent-red: #ff4757;
+    --accent-yellow: #ffa502;
+    --accent-blue: #3742fa;
+    --border-color: #2a2a4a;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    text-align: center;
+    padding: 24px 16px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .header .date-info {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  /* ===== Summary Banner ===== */
+  .summary-banner {
+    background: linear-gradient(135deg, #2d1b69 0%, #1e3a5f 100%);
+    border: 1px solid #4a3a8a;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .summary-banner .label {
+    font-size: 13px;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .summary-banner .text {
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 500;
+  }
+
+  /* ===== Section ===== */
+  .section {
+    margin-bottom: 28px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .icon {
+    font-size: 20px;
+  }
+
+  /* ===== Hot Topics ===== */
+  .topic-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .topic-card:hover {
+    border-color: #4a4a7a;
+  }
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topic-name {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .topic-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .tag-strong { background: rgba(255,71,87,0.2); color: var(--accent-red); }
+  .tag-brewing { background: rgba(255,165,2,0.2); color: var(--accent-yellow); }
+  .tag-pullback { background: rgba(0,210,106,0.2); color: var(--accent-green); }
+  .tag-durability { background: rgba(255,215,0,0.15); color: var(--accent-gold); }
+
+  .topic-layer {
+    margin-bottom: 12px;
+  }
+  .topic-layer .layer-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .topic-layer .layer-content {
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding-left: 4px;
+  }
+  .label-logic { color: #82b1ff; }
+  .label-capital { color: #80cbc4; }
+  .label-target { color: var(--accent-gold); }
+  .label-risk { color: var(--accent-red); }
+
+  /* ===== Stock & Sector Links ===== */
+  .stock-link {
+    color: var(--accent-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .stock-link:hover {
+    color: #69f0ae;
+  }
+  .stock-link.down {
+    color: var(--accent-red);
+  }
+  .stock-link.down:hover {
+    color: #ff6b81;
+  }
+
+  .sector-link {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .sector-link:hover {
+    color: #ffe44d;
+  }
+
+  /* ===== Big V Opinions ===== */
+  .source-group {
+    margin-bottom: 16px;
+  }
+  .source-label {
+    font-size: 13px;
+    color: var(--accent-blue);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    border-left: 3px solid var(--accent-blue);
+  }
+  .opinion-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .opinion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .opinion-author {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .opinion-author .followers {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 6px;
+  }
+  .opinion-source-link, .source-link {
+    font-size: 12px;
+    color: var(--accent-blue);
+    text-decoration: none;
+    background: rgba(55,66,250,0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .opinion-source-link:hover, .source-link:hover {
+    background: rgba(55,66,250,0.3);
+  }
+  .opinion-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .opinion-signal {
+    font-size: 13px;
+    padding: 6px 10px;
+    background: rgba(255,215,0,0.08);
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+  .opinion-signal .sig-label {
+    color: var(--accent-gold);
+    font-weight: 600;
+  }
+
+  .consensus-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-top: 12px;
+  }
+  .consensus-box .line {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .consensus-agree { color: var(--accent-green); }
+  .consensus-diverge { color: var(--accent-yellow); }
+  .consensus-reject { color: var(--accent-red); }
+
+  /* ===== Research Reports ===== */
+  .report-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .report-title {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .report-date {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .report-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .report-body .rb-label {
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .report-body .rb-section {
+    margin-bottom: 8px;
+  }
+
+  /* ===== Knowledge Points ===== */
+  .knowledge-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .knowledge-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+  }
+  .knowledge-section {
+    margin-bottom: 10px;
+  }
+  .knowledge-section .ks-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .knowledge-section .ks-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  /* ===== Operation Reference ===== */
+  .op-section {
+    margin-bottom: 16px;
+  }
+  .op-section-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .op-bullish .op-section-title { color: var(--accent-green); }
+  .op-bearish .op-section-title { color: var(--accent-red); }
+  .op-t .op-section-title { color: #82b1ff; }
+  .op-position .op-section-title { color: var(--accent-yellow); }
+
+  .op-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .op-item-header {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .op-item-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .op-item-body .op-line {
+    margin-bottom: 3px;
+  }
+  .op-item-body .op-label {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ===== Market Rumors ===== */
+  .rumor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-yellow);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .rumor-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .rumor-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .rumor-meta .credibility {
+    color: var(--accent-yellow);
+  }
+
+  .rumor-disclaimer {
+    font-size: 13px;
+    color: var(--accent-yellow);
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: rgba(255,165,2,0.08);
+    border-radius: 4px;
+  }
+
+  /* ===== Market Data ===== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+  }
+  .data-table th {
+    text-align: left;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+  }
+  .data-table td {
+    padding: 8px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(42,42,74,0.5);
+  }
+  .data-table .up { color: var(--accent-red); font-weight: 600; }
+  .data-table .down { color: var(--accent-green); font-weight: 600; }
+
+  .sentiment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .sentiment-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 10px;
+    text-align: center;
+  }
+  .sentiment-item .si-value {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .sentiment-item .si-label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .sector-rank {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sector-rank-col {
+    flex: 1;
+    min-width: 200px;
+  }
+  .sector-rank-col h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .sector-rank-col .rank-item {
+    font-size: 14px;
+    padding: 4px 0;
+    color: var(--text-secondary);
+  }
+  .rank-num {
+    display: inline-block;
+    width: 22px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* ===== Disclaimer ===== */
+  .disclaimer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 20px 16px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 24px;
+    line-height: 1.8;
+  }
+
+  /* ===== Modal ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .modal-overlay.active {
+    display: flex;
+  }
+  .modal-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .modal-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+  }
+  .modal-close:hover {
+    color: var(--text-primary);
+  }
+  .modal-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 18px;
+  }
+  .modal-tab {
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: 600;
+  }
+  .modal-tab:hover {
+    color: var(--text-primary);
+  }
+  .modal-tab.active {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+  }
+  .modal-body {
+    padding: 12px 18px 18px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .modal-body img {
+    width: 100%;
+    border-radius: var(--radius);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 600px) {
+    .container { padding: 10px; }
+    .header h1 { font-size: 20px; }
+    .summary-banner .text { font-size: 14px; }
+    .section-title { font-size: 16px; }
+    .topic-header { flex-direction: column; align-items: flex-start; }
+    .sentiment-grid { grid-template-columns: repeat(2, 1fr); }
+    .sector-rank { flex-direction: column; }
+    .modal-card { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== Header ===== -->
+  <div class="header">
+    <h1>📈 A股每日资讯简报</h1>
+    <div class="date-info">2026年5月27日 星期二 · 盘后深度报告</div>
+  </div>
+
+  <!-- ===== Module 1: Summary ===== -->
+  <div class="summary-banner">
+    <div class="label">⚡ 一句话总结</div>
+    <div class="text">今日A股上演极致分化，三大指数涨跌不一，沪深300权重尾盘强行拉抬指数，但全市场超4000只个股下跌，赚钱效应降至冰点。有色金属、PCB成为避险资金主战场，半导体/AI算力遭遇获利盘集中兑现。市场风格从"科技成长独大"转向"高低切换"，权重护盘与题材退潮并存。</div>
+  </div>
+
+  <!-- ===== Module 2: Hot Topics ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔥</span> 今日热门题材 TOP 5</div>
+
+    <!-- Topic 1: 有色金属 -->
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">TOP1 有色金属 / 贵金属</div>
+        <div class="topic-tags">
+          <span class="tag tag-strong">板块涨幅+2.77%</span>
+          <span class="tag tag-durability">主力净流入超50亿</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-logic">📊 核心逻辑</div>
+        <div class="layer-content">地缘政治风险持续发酵霍尔木兹海峡封锁持续，全球避险情绪升温；全球央行持续增持黄金，各国央行购金需求创历史新高；几内亚拟管控铝土矿出口，工业金属供给收缩预期强化；国内稳增长政策加持，叠加板块长期处于估值洼地，成为资金避险首选。AI算力高位回调背景下，资金向低估值、高股息的周期板块大规模转移。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-capital">💰 资金信号</div>
+        <div class="layer-content">全市场唯一主力净流入超50亿板块，北向资金逆势加仓，单日主力净流入50.72亿元。黄金概念、小金属、工业金属三大细分方向集体爆发，盛龙股份、中国铝业、招金黄金、金钼股份等多股涨停，南山铝业、宏桥控股、云铝股份、天山铝业等涨超6%。板块虹吸效应显著，成为今日最强主线。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-target">🎯 核心标的</div>
+        <div class="layer-content">
+          <span class="stock-link" data-code="sh601600">中国铝业</span>（涨停，工业金属龙头）、
+          <span class="stock-link" data-code="sh600547">山东黄金</span>、
+          <span class="stock-link" data-code="sz000506">招金黄金</span>（涨停，贵金属龙头）、
+          <span class="stock-link" data-code="sh601958">金钼股份</span>（涨停，小金属）、
+          <span class="stock-link" data-code="sh600219">南山铝业</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-risk">⚠️ 风险提示</div>
+        <div class="layer-content">美联储加息预期反复，美元指数走强压制大宗商品价格；全球经济复苏不及预期导致需求下滑；地缘局势缓和可能降低避险情绪。</div>
+      </div>
+    </div>
+
+    <!-- Topic 2: PCB/先进封装 -->
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">TOP2 PCB / 先进封装</div>
+        <div class="topic-tags">
+          <span class="tag tag-strong">生益电子20%涨停</span>
+          <span class="tag tag-brewing">AI服务器核心受益</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-logic">📊 核心逻辑</div>
+        <div class="layer-content">英伟达下一代Rubin架构BOM拆解显示，VR200 NVL72机柜PCB价值量从3.5万美元跃升至11.7万美元，暴增233%。PCB正从传统连接载体升级为AI机柜核心互联组件，正交背板层数最高达到78层。mSAP工艺、CoWoP技术推动PCB向"半导体级工艺"演进，行业技术壁垒显著抬高。覆铜板从M7/M8升级至M9等级，上游材料同步升级。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-capital">💰 资金信号</div>
+        <div class="layer-content">生益电子午后开盘1分钟即20%涨停，股价创历史新高；肯特股份20%涨停；沪电股份盘中触及涨停创历史新高，收盘涨8.31%；生益科技10天4板涨停；宝鼎科技14天9板。PCB概念股在科技主线集体回调背景下逆势走强，成为资金抱团新方向。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-target">🎯 核心标的</div>
+        <div class="layer-content">
+          龙头：<span class="stock-link" data-code="sh600183">生益科技</span>（涨停）、
+          <span class="stock-link" data-code="sz002463">沪电股份</span>（创历史新高）、
+          <span class="stock-link" data-code="sh688183">生益电子</span>（20%涨停）<br>
+          上游材料：<span class="stock-link" data-code="sz002909">宝鼎科技</span>（14天9板）、
+          <span class="stock-link" data-code="sh600516">中国巨石</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-risk">⚠️ 风险提示</div>
+        <div class="layer-content">AI服务器需求不及预期；PCB新工艺商业化推进低于预期；上游材料价格波动加剧；行业扩产过快导致竞争加剧。</div>
+      </div>
+    </div>
+
+    <!-- Topic 3: 电力/高股息 -->
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">TOP3 电力 / 高股息防御</div>
+        <div class="topic-tags">
+          <span class="tag tag-strong">华电能源连板</span>
+          <span class="tag tag-durability">避险属性强化</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-logic">📊 核心逻辑</div>
+        <div class="layer-content">夏季用电旺季来临，电力需求预期提升；高股息防御属性凸显，在市场风格切换期成为资金避风港；电力体制改革持续推进，电价市场化改革利好发电企业盈利能力改善；煤炭价格回落降低火电企业成本，盈利弹性释放。低估值+高分红+业绩确定性，三重属性吸引避险资金流入。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-capital">💰 资金信号</div>
+        <div class="layer-content">华电能源连板走强，上海电力涨停，大众公用、胜通能源、百通能源等批量涨停。电力板块成为除有色金属外为数不多的逆势上涨方向，资金防御属性明显，板块整体呈现稳健上涨态势。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-target">🎯 核心标的</div>
+        <div class="layer-content">
+          <span class="stock-link" data-code="sh600726">华电能源</span>（连板）、
+          <span class="stock-link" data-code="sh600021">上海电力</span>（涨停）、
+          <span class="stock-link" data-code="sh600635">大众公用</span>（涨停）、
+          <span class="stock-link" data-code="sz001239">胜通能源</span>、
+          <span class="stock-link" data-code="sh605050">百通能源</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topic 4: 人形机器人 -->
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">TOP4 人形机器人 / 宇树科技</div>
+        <div class="topic-tags">
+          <span class="tag tag-brewing">IPO催化</span>
+          <span class="tag tag-strong">中大力德涨停</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-logic">📊 核心逻辑</div>
+        <div class="layer-content">宇树科技计划6月1日上会IPO审议，带动相关概念走强。多家行业厂商给出万台级以上量产指引，产业化拐点预期形成。AI大模型与人形机器人结合加速，具身智能成为AI下一阶段重要应用方向，行业空间广阔。在科技主线整体回调背景下，机器人成为少数仍有催化的细分方向。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-capital">💰 资金信号</div>
+        <div class="layer-content">中大力德涨停，长盛轴承涨超9%，双林股份、金发科技涨超5%。板块呈现局部热点特征，资金聚焦宇树科技产业链相关标的。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-target">🎯 核心标的</div>
+        <div class="layer-content">
+          <span class="stock-link" data-code="sz002896">中大力德</span>（涨停）、
+          <span class="stock-link" data-code="sz300718">长盛轴承</span>、
+          <span class="stock-link" data-code="sz300100">双林股份</span>、
+          <span class="stock-link" data-code="sh600143">金发科技</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topic 5: 券商/金融护盘 -->
+    <div class="topic-card">
+      <div class="topic-header">
+        <div class="topic-name">TOP5 券商 / 金融护盘</div>
+        <div class="topic-tags">
+          <span class="tag tag-pullback">尾盘异动</span>
+          <span class="tag tag-brewing">估值洼地</span>
+        </div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-logic">📊 核心逻辑</div>
+        <div class="layer-content">资本市场持续活跃，股权融资走向复苏，证券行业2026年利润有望增长约14%。当前券商板块PB估值处于近十年10%分位以下，性价比凸显。市场高位震荡期，金融板块承担护盘功能，尾盘集中发力稳住指数。低估值+政策预期+护盘需求三重逻辑支撑。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-capital">💰 资金信号</div>
+        <div class="layer-content">第一创业等尾盘异动，银行股全天稳健。沪深300尾盘拉升超0.5%，金融权重贡献主要力量，成为指数"失真"的重要推手。</div>
+      </div>
+      <div class="topic-layer">
+        <div class="layer-label label-target">🎯 核心标的</div>
+        <div class="layer-content">
+          <span class="stock-link" data-code="sz002797">第一创业</span>、
+          <span class="stock-link" data-code="sh601211">国泰君安</span>、
+          <span class="stock-link" data-code="sh600036">招商银行</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 3: Big V Opinions ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📝</span> 大V观点精选</div>
+
+    <div class="source-group">
+      <div class="source-label">微博大V</div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">麒麟神侯 <span class="followers">职业投资人</span></div>
+          <a class="opinion-source-link" href="http://news.qq.com/rain/a/20260525A09DMO00" target="_blank">🔗 原文</a>
+        </div>
+        <div class="opinion-text">今日市场探底回升，创业板指涨超2%，科创50涨近6%再创历史新高，双创已经完成对于上周四阴线的修复反包。题材方面，极端分化行情还在继续，一边是超百股涨停，一边是超三千家下跌，赚钱效应高度聚焦于AI硬件、半导体等科技主线，其他方向跟股灾也没啥区别。选择大于努力，全世界所有的主流国家市场都是头部科技领涨，无一例外。</div>
+        <div class="opinion-signal">
+          <span class="sig-label">核心观点：</span>继续坚定聚焦科技，半导体、先进封装、晶圆制造等方向整体已经强于AI硬件，可以持续关注"AI需求→产能向高端倾斜→供给收缩→全品类涨价"的涨价传导。模拟芯片最近也开始走主升了，后面关注大功率变压器这块的补涨。
+        </div>
+      </div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">ETF大魔头</div>
+          <a class="opinion-source-link" href="http://m.toutiao.com/group/7644178348596052543/" target="_blank">🔗 原文</a>
+        </div>
+        <div class="opinion-text">其实最近市场走的节奏不是特别一样，我现在也不知道未来一段时间节奏到底是怎么样，因为从科创来看是很典型的半小时的上涨，今天五分钟出现下跌，走了一个非常非常小的结构直接突破，也就证明明天很有可能继续向上，这是整个科创的走势。</div>
+        <div class="opinion-signal">
+          <span class="sig-label">操作建议：</span>目前很多的品种都是一个半小时的下跌，都要面临着一个半小时的上涨这样的结构。是科创继续涨，还是会出现新的分化？很难去讲，因为从现在通讯也好，半导体也好，这些品种确实很强势，但是却没有太大级别的买点，目前的买点就是在五分钟。
+        </div>
+      </div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">鸟叔操盘</div>
+        </div>
+        <div class="opinion-text">继卖飞合肥城建之后，今天上午9个点又清仓了宇树科技参股第一的公司，两次都是持有屁消息没有，一卖IPO就过会，果然命运会反复出题，A股会惩罚每一个不坚定的人。没事，我还可以安慰自己机器人板块是第一大重仓。</div>
+      </div>
+
+    </div>
+
+    <div class="source-group">
+      <div class="source-label">公众号/券商研究</div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">中信建投证券</div>
+        </div>
+        <div class="opinion-text">短期市场大概率延续科技主导、结构性轮动格局。操作上建议聚焦硬科技核心赛道，如遇回调寻找加仓机会，同时关注中特估板块的避险配置价值。科创50与创业板强势未改，半导体、算力主线仍有资金支撑，但警惕高位抱团股短期波动，仓位不宜过重。</div>
+      </div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">开源证券</div>
+        </div>
+        <div class="opinion-text">当前市场的调整本质上是高拥挤交易后的消化，只要盈利、流动性、风险偏好没有同时出现趋势性逆转，牛市基础仍然存在。后续大概率是科技内部切换，以及向更多"二次点火"资产扩散。在外部风险扰动下，有色金属和石油的跷跷板效应会延续。</div>
+      </div>
+
+      <div class="opinion-card">
+        <div class="opinion-header">
+          <div class="opinion-author">申万宏源</div>
+        </div>
+        <div class="opinion-text">大波段行情未结束，短期动量效应集中在半导体设备、算力通胀领域，在外部风险扰动下，有色金属和石油的跷跷板效应会延续。</div>
+      </div>
+
+    </div>
+
+    <div class="consensus-box">
+      <div class="section-title" style="font-size:15px;border:none;margin-bottom:8px;">🔄 观点一致性分析</div>
+      <div class="line consensus-agree">✓ 普遍认同：科技主线长期逻辑未变，短期存在高低切换需求</div>
+      <div class="line consensus-agree">✓ 普遍认同：PCB/先进封装是半导体内部最强细分方向</div>
+      <div class="line consensus-diverge">⟳ 分歧点：有色金属是短期避险还是中期风格切换</div>
+      <div class="line consensus-diverge">⟳ 分歧点：AI算力调整是买入机会还是趋势反转</div>
+      <div class="line consensus-reject">✗ 共识风险：仓位控制是当前第一要务，不宜满仓博弈</div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 4: Research Reports ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📊</span> 研报精选</div>
+
+    <div class="report-card">
+      <div class="report-header">
+        <div class="report-title">PCB价值量为何暴涨？AI服务器升级打开产业空间</div>
+        <div class="report-date">2026-05-26 | 华西证券/国金证券/东吴证券</div>
+      </div>
+      <div class="report-body">
+        <div class="rb-section">
+          <div class="rb-label">核心逻辑：</div>英伟达下一代Rubin架构BOM拆解显示，VR200 NVL72机柜整体BOM较GB300提升约95%，其中PCB成为除内存外价值量提升最明显的环节，从3.5万美元跃升至11.7万美元，增幅233%。PCB正从传统连接载体升级为AI机柜核心互联组件，正交背板层数最高达到78层。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">投资建议：</div>重点关注三条主线：1）直接受益于AI服务器需求爆发的PCB龙头厂商（胜宏科技、沪电股份、深南电路等）；2）受益于材料升级趋势的覆铜板、电子布及铜箔厂商（生益科技、南亚新材等）；3）具备技术壁垒的PCB设备与耗材企业（鼎泰高科、大族数控等）。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">估值分析：</div>PCB板块2026年动态PE约25-30倍，考虑到AI服务器需求爆发带来的业绩增速（预计龙头公司增速30-50%），当前估值具备吸引力。行业从传统电子制造向半导体级工艺演进，估值体系有望重构。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">风险提示：</div>AI服务器需求不及预期；PCB新工艺商业化推进低于预期；上游材料价格波动加剧；行业扩产过快导致竞争加剧。
+        </div>
+        <a class="source-link" href="http://m.toutiao.com/group/7643981385065169454/" target="_blank">🔗 研报原文</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-header">
+        <div class="report-title">国产AI芯片独角兽图谱：谁将引领算力中心建设？</div>
+        <div class="report-date">2026-05-26 | 行业深度报告</div>
+      </div>
+      <div class="report-body">
+        <div class="rb-section">
+          <div class="rb-label">核心逻辑：</div>"十五五"规划对算力基础设施自主化的明确要求，叠加国际科技竞争格局的深刻变化，使得国产自主可控算力芯片成为国家战略级赛道。各地算力中心建设进入高峰期，对国产AI算力芯片的需求呈现井喷态势。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">重点标的：</div>中星微技术（"星光中国芯工程"承担主体，3000余项专利）、壁仞科技（2026年3月港交所上市，BR100系列完成万卡集群部署）、摩尔线程（2025年12月科创板上市，夸娥智算集群万卡级规模落地）、寒武纪（市值超4400亿元，思元系列广泛应用于国家级智算中心）。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">技术进展：</div>壁仞BR20X计划2026年商业化上市，增强FP8/FP4支持；摩尔线程MTT S5000完成MiniMax M2.7、DeepSeek-V4等主流大模型适配；中星微"星光智能五号"支持6710亿参数大模型运行。
+        </div>
+        <a class="source-link" href="http://m.toutiao.com/group/7644138538950230555/" target="_blank">🔗 研报原文</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-header">
+        <div class="report-title">有色金属行业策略：避险需求叠加供给收缩</div>
+        <div class="report-date">2026-05-26 | 中信证券/华泰证券</div>
+      </div>
+      <div class="report-body">
+        <div class="rb-section">
+          <div class="rb-label">核心逻辑：</div>地缘政治风险持续发酵，霍尔木兹海峡封锁超预期，全球供应链扰动增加；全球央行持续增持黄金，各国央行购金需求创历史新高；几内亚拟管控铝土矿出口，工业金属供给收缩预期强化；国内稳增长政策加持，叠加板块长期处于估值洼地。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">投资建议：</div>首推黄金板块（招金黄金、山东黄金），重点关注工业金属（中国铝业、南山铝业），小金属推荐钼、铜相关标的。板块估值处于历史低位，具备较高安全边际，建议逢低布局。
+        </div>
+        <div class="rb-section">
+          <div class="rb-label">盈利预测：</div>预计黄金板块2026年净利润同比增长25-35%，工业金属板块同比增长15-25%。当前板块动态PE约12-15倍，处于近五年30%分位以下。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 5: Knowledge Points ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🧠</span> 今日知识点速学</div>
+
+    <div class="knowledge-card">
+      <div class="knowledge-title">知识点1：PCB从"电路板"到"半导体级工艺"的跃迁</div>
+      <div class="knowledge-section">
+        <div class="ks-label">概念定义：</div>
+        <div class="ks-content">PCB（Printed Circuit Board，印制电路板）传统上是电子元器件的支撑体和电气连接的载体。随着AI服务器升级，PCB正从传统连接组件升级为半导体级核心互联组件，工艺难度和价值量大幅提升。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">为什么现在重要：</div>
+        <div class="ks-content">英伟达Rubin架构推动PCB价值量暴增233%，正交背板层数达到78层，线宽/线距缩小至15-25μm（mSAP工艺），精度开始接近IC封装基板。CoWoP技术使PCB直接承担部分先进封装功能，行业技术壁垒显著抬高。这意味着PCB不再是单纯的"耗材"，而是AI算力产业链的核心价值环节。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">产业链影响：</div>
+        <div class="ks-content">上游：覆铜板从M7/M8升级至M9等级，电子布、HVLP铜箔需求激增；中游：高层数、高频高速PCB量产能力成为核心壁垒；下游：AI服务器厂商与PCB厂深度绑定，联合开发成为趋势。整个产业链正在经历从"电子制造"向"半导体制造"的范式转移。</div>
+      </div>
+      <a class="source-link" href="http://m.toutiao.com/group/7643981385065169454/" target="_blank">🔗 参考来源</a>
+    </div>
+
+    <div class="knowledge-card">
+      <div class="knowledge-title">知识点2：华为"韬(τ)定律"——AI算力的新摩尔定律</div>
+      <div class="knowledge-section">
+        <div class="ks-label">概念定义：</div>
+        <div class="ks-content">华为提出的"韬(τ)定律"指出，随着AI大模型参数规模每100天翻一番，对算力、存储、网络的需求呈现出远超摩尔定律的指数级增长，整个算力基础设施需要系统性重构才能满足AI发展需求。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">为什么现在重要：</div>
+        <div class="ks-content">5月27日A股市场中，"韬定律"相关的PCB、先进封装、算力基础设施逆势走强，而传统AI应用方向集体回调。这表明市场正在从"AI概念炒作"转向"AI基础设施价值重估"，真正受益于算力需求爆发的硬核科技环节获得资金认可。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">投资启示：</div>
+        <div class="ks-content">AI产业链的价值正在向更上游、更硬核的基础设施环节转移——从应用层到算力层，再到算力基础设施层（PCB、封装、互联、材料）。这一轮科技牛市的主线正在深化，从"能用AI"到"算得动AI"的基础设施升级才刚刚开始。</div>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <div class="knowledge-title">知识点3："指数失真"行情的识别与应对</div>
+      <div class="knowledge-section">
+        <div class="ks-label">概念定义：</div>
+        <div class="ks-content">"指数失真"指主要指数表现平稳甚至上涨，但全市场绝大多数个股下跌，赚钱效应极差的市场状态。通常由权重股集中拉抬指数造成，本质是市场结构极度分化的表现。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">今日典型特征：</div>
+        <div class="ks-content">沪指仅跌0.17%、沪深300涨0.53%，但全市场1354家上涨、4082家下跌，上涨个股占比仅25%。尾盘沪深300权重集中发力，有色金属、电力、券商等方向拉抬指数，而代表中小盘的科创50跌1.49%、北证50跌2.47%。典型的"权重搭台，个股唱戏（唱反调）"。</div>
+      </div>
+      <div class="knowledge-section">
+        <div class="ks-label">操作应对：</div>
+        <div class="ks-content">1）严控仓位，退潮期不盲目抄底；2）聚焦主线，只做资金真正抱团的方向；3）回避高位纯题材股，警惕补跌风险；4）指数不跌不等于风险释放，要以涨跌家数、跌停数量等情绪指标判断真实市场温度。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 6: Operation Reference ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> 明日操作参考</div>
+
+    <div class="op-section op-bullish">
+      <div class="op-section-title">📈 看多方向</div>
+      <div class="op-item">
+        <div class="op-item-header">PCB / 先进封装产业链</div>
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">核心逻辑：</span>英伟达Rubin架构价值量暴增233%，行业逻辑最强验证</div>
+          <div class="op-line"><span class="op-label">关注标的：</span>生益科技、沪电股份、深南电路、胜宏科技、宝鼎科技</div>
+          <div class="op-line"><span class="op-label">操作策略：</span>主线分歧低吸，不追高，重点关注机构重仓趋势龙头</div>
+        </div>
+      </div>
+      <div class="op-item">
+        <div class="op-item-header">有色金属 / 贵金属</div>
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">核心逻辑：</span>地缘避险+央行购金+供给收缩，三重逻辑共振</div>
+          <div class="op-line"><span class="op-label">关注标的：</span>中国铝业、招金黄金、山东黄金、金钼股份</div>
+          <div class="op-line"><span class="op-label">操作策略：</span>作为防御配置，分批低吸，不宜追涨</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-section op-bearish">
+      <div class="op-section-title">📉 看空/谨慎方向</div>
+      <div class="op-item">
+        <div class="op-item-header">高位AI应用 / 纯题材股</div>
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">风险点：</span>获利盘集中兑现，筹码松动，补跌风险大</div>
+          <div class="op-line"><span class="op-label">规避标的：</span>无业绩支撑的AI应用概念股、短期涨幅过大的纯题材股</div>
+          <div class="op-line"><span class="op-label">操作策略：</span>坚决规避，等待风险充分释放后再观察</div>
+        </div>
+      </div>
+      <div class="op-item">
+        <div class="op-item-header">半导体 / 算力硬件（短期）</div>
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">风险点：</span>交易过度拥挤，部分公司股东减持公告引发连锁反应</div>
+          <div class="op-line"><span class="op-label">操作策略：</span>等待回调到位，关注真正有业绩的细分龙头，而非板块性机会</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-section op-t">
+      <div class="op-section-title">🔄 做T参考</div>
+      <div class="op-item">
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">指数做T：</span>沪深300尾盘拉升后，明日早盘若惯性冲高可考虑高抛，回调再接回</div>
+          <div class="op-line"><span class="op-label">板块做T：</span>有色金属连续上涨后可能有分歧，可考虑波段操作</div>
+          <div class="op-line"><span class="op-label">个股做T：</span>PCB核心标的若高开过多可考虑先兑现部分仓位</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-section op-position">
+      <div class="op-section-title">⚖️ 仓位建议</div>
+      <div class="op-item">
+        <div class="op-item-body">
+          <div class="op-line"><span class="op-label">总仓位：</span>建议控制在3-5成，退潮期防守为主</div>
+          <div class="op-line"><span class="op-label">仓位分配：</span>PCB/先进封装2成，有色金属1成，现金2成以上</div>
+          <div class="op-line"><span class="op-label">核心原则：</span>不抄底、不追高、不满仓，等待市场情绪企稳信号</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 7: Market Rumors ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📢</span> 市场传闻与小作文</div>
+
+    <div class="rumor-disclaimer">⚠️ 以下内容未经证实，仅供信息追踪，不构成操作依据</div>
+
+    <div class="rumor-card">
+      <div class="rumor-title">传闻1：英伟达VR200机柜PCB价值量暴增233%</div>
+      <div class="rumor-meta">
+        来源：华尔街机构BOM拆解 | <span class="credibility">可信度：★★★★★</span> | 影响板块：PCB
+      </div>
+      <div class="rumor-meta">验证状态：已被多家券商研报引用，生益电子、沪电股份股价创历史新高验证</div>
+    </div>
+
+    <div class="rumor-card">
+      <div class="rumor-title">传闻2：宇树科技6月1日IPO上会</div>
+      <div class="rumor-meta">
+        来源：市场传闻 | <span class="credibility">可信度：★★★★☆</span> | 影响板块：人形机器人
+      </div>
+      <div class="rumor-meta">验证状态：中大力德等相关标的异动，待官方正式公告确认</div>
+    </div>
+
+    <div class="rumor-card">
+      <div class="rumor-title">传闻3：央行6月可能降准</div>
+      <div class="rumor-meta">
+        来源：机构预测 | <span class="credibility">可信度：★★★☆☆</span> | 影响板块：大金融、周期
+      </div>
+      <div class="rumor-meta">验证状态：5月MLF净投放1000亿元，市场对6月降准有预期，暂无官方消息</div>
+    </div>
+
+  </div>
+
+  <!-- ===== Module 8: Market Data ===== -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📋</span> 大盘数据速览</div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>指数</th>
+          <th>收盘点位</th>
+          <th>涨跌幅</th>
+          <th>成交额</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>上证指数</td>
+          <td>4145.37</td>
+          <td class="down">-0.17%</td>
+          <td>约1.46万亿</td>
+        </tr>
+        <tr>
+          <td>深证成指</td>
+          <td>15876.16</td>
+          <td class="up">+0.12%</td>
+          <td>约1.78万亿</td>
+        </tr>
+        <tr>
+          <td>创业板指</td>
+          <td>4043.07</td>
+          <td class="up">+0.54%</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>科创50</td>
+          <td>1867.71</td>
+          <td class="down">-1.49%</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>沪深300</td>
+          <td>4947.85</td>
+          <td class="up">+0.53%</td>
+          <td>约8991亿</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sentiment-grid">
+      <div class="sentiment-item">
+        <div class="si-value up">3.24万亿</div>
+        <div class="si-label">两市总成交额</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value up">+380亿</div>
+        <div class="si-label">较昨日放量</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value down">1354家</div>
+        <div class="si-label">上涨个股</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value up">4082家</div>
+        <div class="si-label">下跌个股</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value up">64家</div>
+        <div class="si-label">涨停家数</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value down">34家</div>
+        <div class="si-label">跌停家数</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value up">+50亿</div>
+        <div class="si-label">北向资金净流入</div>
+      </div>
+      <div class="sentiment-item">
+        <div class="si-value">25%</div>
+        <div class="si-label">上涨个股占比</div>
+      </div>
+    </div>
+
+    <div class="sector-rank">
+      <div class="sector-rank-col">
+        <h4>🏆 涨幅前五板块</h4>
+        <div class="rank-item"><span class="rank-num">1</span>有色金属 +2.77%</div>
+        <div class="rank-item"><span class="rank-num">2</span>贵金属 +2.15%</div>
+        <div class="rank-item"><span class="rank-num">3</span>工业金属 +1.88%</div>
+        <div class="rank-item"><span class="rank-num">4</span>小金属 +1.76%</div>
+        <div class="rank-item"><span class="rank-num">5</span>电力 +1.23%</div>
+      </div>
+      <div class="sector-rank-col">
+        <h4>📉 跌幅前五板块</h4>
+        <div class="rank-item"><span class="rank-num">1</span>算力租赁 -3.87%</div>
+        <div class="rank-item"><span class="rank-num">2</span>半导体 -3.12%</div>
+        <div class="rank-item"><span class="rank-num">3</span>国防军工 -2.89%</div>
+        <div class="rank-item"><span class="rank-num">4</span>商业航天 -2.76%</div>
+        <div class="rank-item"><span class="rank-num">5</span>AI应用 -2.54%</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Disclaimer ===== -->
+  <div class="disclaimer">
+    ⚠️ 免责声明<br>
+    本简报由AI自动生成，仅供信息参考，不构成任何投资建议。<br>
+    大V观点仅为信息聚合，不代表本平台立场。<br>
+    市场有风险，投资需谨慎。请基于自身判断做出投资决策。<br>
+    数据来源：微博/小红书/微信公众号/东方财富/同花顺/雪球/券商研报<br>
+    生成时间：2026-05-26 21:30 | 下次更新：2026-05-27 盘后
+  </div>
+
+</div>
+
+<!-- ===== Chart Modal ===== -->
+<div class="modal-overlay" id="chartModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">--</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-tabs" id="modalTabs"></div>
+    <div class="modal-body">
+      <img id="modalImg" src="" alt="走势图加载中..." />
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== Stock chart URLs =====
+// Sina K-line: https://image.sinajs.cn/newchart/{period}/n/{code}.gif
+// period: daily / weekly / monthly / min
+// code: sh600519, sz000001
+const SINA_BASE = 'https://image.sinajs.cn/newchart/';
+
+// Eastmoney sector K-line:
+// https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=90.{code}&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&klt=101&fqt=1&end=20500101&lmt=120
+// For simplicity, use the image approach:
+// https://webquoteklinepic.eastmoney.com/_gif_{period}_{code}_1_120.png
+const EM_SECTOR_BASE = 'https://webquoteklinepic.eastmoney.com/_gif_';
+
+// Chart period mapping
+const STOCK_PERIODS = {
+  '日K': 'daily',
+  '周K': 'weekly',
+  '月K': 'monthly',
+  '分时': 'min'
+};
+const SECTOR_PERIODS = {
+  '日K': '101',
+  '周K': '102',
+  '月K': '103'
+};
+
+function openStockChart(name, code) {
+  const modal = document.getElementById('chartModal');
+  const title = document.getElementById('modalTitle');
+  const tabs = document.getElementById('modalTabs');
+  const img = document.getElementById('modalImg');
+
+  title.textContent = name + ' (' + code + ')';
+  tabs.innerHTML = '';
+
+  const periods = Object.entries(STOCK_PERIODS);
+  periods.forEach(function([label, period], idx) {
+    const btn = document.createElement('button');
+    btn.className = 'modal-tab' + (idx === 0 ? ' active' : '');
+    btn.textContent = label;
+    btn.onclick = function() {
+      tabs.querySelectorAll('.modal-tab').forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+      img.src = SINA_BASE + period + '/n/' + code + '.gif?t=' + Date.now();
+    };
+    tabs.appendChild(btn);
+  });
+
+  img.src = SINA_BASE + 'daily/n/' + code + '.gif?t=' + Date.now();
+  modal.classList.add('active');
+}
+
+function openSectorChart(name, code) {
+  const modal = document.getElementById('chartModal');
+  const title = document.getElementById('modalTitle');
+  const tabs = document.getElementById('modalTabs');
+  const img = document.getElementById('modalImg');
+
+  title.textContent = name + ' (' + code + ')';
+  tabs.innerHTML = '';
+
+  const periods = Object.entries(SECTOR_PERIODS);
+  periods.forEach(function([label, period], idx) {
+    const btn = document.createElement('button');
+    btn.className = 'modal-tab' + (idx === 0 ? ' active' : '');
+    btn.textContent = label;
+    btn.onclick = function() {
+      tabs.querySelectorAll('.modal-tab').forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+      img.src = EM_SECTOR_BASE + period + '_' + code + '_1_120.png?t=' + Date.now();
+    };
+    tabs.appendChild(btn);
+  });
+
+  img.src = EM_SECTOR_BASE + '101_' + code + '_1_120.png?t=' + Date.now();
+  modal.classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('chartModal').classList.remove('active');
+}
+
+// Close on overlay click
+document.getElementById('chartModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Close on ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Bind all stock-links and sector-links
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('.stock-link');
+  if (el) {
+    e.preventDefault();
+    openStockChart(el.textContent.trim(), el.dataset.code);
+    return;
+  }
+  el = e.target.closest('.sector-link');
+  if (el) {
+    e.preventDefault();
+    openSectorChart(el.textContent.trim(), el.dataset.code);
+    return;
+  }
+});
+</script>
+
+</body>
+</html>
